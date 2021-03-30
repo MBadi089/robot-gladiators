@@ -1,21 +1,46 @@
-// this creates a function named "fight"
-function fight (){
-window.alert("The fight has begun!");
-}
-//adding a prompt function so the User can input what they want. 
 var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
 
-// Note the lack of quotation marks around playerName
-//this will store the User's input of playerName, console.log can be viewed in the "Inspect" (right click on browser) and "Console" tab
-console.log(playerName);
+//You can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
-console.log("This logs a string, good for leaving yourself a message");
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-//this will do math and log 20
-console.log(10 + 10);
+var fight = function(){
+    //Alert players that they are starting the round
+    window.alert("Welcome to Roborto Gladiators!");
 
-//this will display "Our robot's name is " and input the Users text for playerName in the console tab 
-console.log("Our robot's name is " + playerName);
+    //Subtract the value of 'playerAttack' from the value of 'enemyHealth' and that result to update the value in the 'enemyHealth' variable
+    enemyHealth = enemyHealth - playerAttack;
 
-//this will call the function. It will then display "The fight has begun!" as an alert when you open the browser. 
-//fight ();
+    // Log a resulting message to the console so we know that it worked.
+        console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining ");
+
+    //check enemy's health
+    if (enemyHealth <= 0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
+    // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
+        playerHealth = playerHealth - enemyAttack;
+
+        // Log a resulting message to the console so we know that it worked.
+        console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+
+    //check player's health
+    if (playerHealth <=0) {
+        window.alert(playerName + " has died!");
+    }    
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+
+};       
+
+
+fight();
